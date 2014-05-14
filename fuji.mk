@@ -165,7 +165,10 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_COPY_FILES += \
     device/sony/fuji-common/rootdir/init.semc.rc:root/init.semc.rc \
     device/sony/fuji-common/rootdir/system/etc/init.fixbt.sh:system/etc/init.fixbt.sh \
-    device/sony/fuji-common/rootdir/ueventd.semc.rc:root/ueventd.semc.rc
+    device/sony/fuji-common/rootdir/ueventd.semc.rc:root/ueventd.semc.rc \
+    device/sony/fuji-common/rootdir/sbin/fbmenu:root/sbin/fbmenu \
+    device/sony/fuji-common/rootdir/sbin/bootsel.sh:root/sbin/bootsel.sh \
+    device/sony/fuji-common/rootdir/usr/lib/consolefont.psf:root/usr/lib/consolefont.psf
 
 # Audio policy config
 PRODUCT_COPY_FILES += \
@@ -187,20 +190,20 @@ PRODUCT_COPY_FILES += \
 
 # Offline charging animation
 PRODUCT_COPY_FILES += \
-     device/sony/fuji-common/animations/charging_animation_01_X.png:system/semc/chargemon/data/charging_animation_01.png \
-     device/sony/fuji-common/animations/charging_animation_02_X.png:system/semc/chargemon/data/charging_animation_02.png \
-     device/sony/fuji-common/animations/charging_animation_03_X.png:system/semc/chargemon/data/charging_animation_03.png \
-     device/sony/fuji-common/animations/charging_animation_04_X.png:system/semc/chargemon/data/charging_animation_04.png \
-     device/sony/fuji-common/animations/charging_animation_05_X.png:system/semc/chargemon/data/charging_animation_05.png \
-     device/sony/fuji-common/animations/charging_animation_06_X.png:system/semc/chargemon/data/charging_animation_06.png \
-     device/sony/fuji-common/animations/charging_animation_07_X.png:system/semc/chargemon/data/charging_animation_07.png \
-     device/sony/fuji-common/animations/charging_animation_01_X.png:system/semc/chargemon/data/non-charging_animation_01.png \
-     device/sony/fuji-common/animations/charging_animation_02_X.png:system/semc/chargemon/data/non-charging_animation_02.png \
-     device/sony/fuji-common/animations/charging_animation_03_X.png:system/semc/chargemon/data/non-charging_animation_03.png \
-     device/sony/fuji-common/animations/charging_animation_04_X.png:system/semc/chargemon/data/non-charging_animation_04.png \
-     device/sony/fuji-common/animations/charging_animation_05_X.png:system/semc/chargemon/data/non-charging_animation_05.png \
-     device/sony/fuji-common/animations/charging_animation_06_X.png:system/semc/chargemon/data/non-charging_animation_06.png \
-     device/sony/fuji-common/animations/charging_animation_07_X.png:system/semc/chargemon/data/non-charging_animation_07.png
+     device/sony/fuji-common/animations/charging_animation_01.png:system/semc/chargemon/data/charging_animation_01.png \
+     device/sony/fuji-common/animations/charging_animation_02.png:system/semc/chargemon/data/charging_animation_02.png \
+     device/sony/fuji-common/animations/charging_animation_03.png:system/semc/chargemon/data/charging_animation_03.png \
+     device/sony/fuji-common/animations/charging_animation_04.png:system/semc/chargemon/data/charging_animation_04.png \
+     device/sony/fuji-common/animations/charging_animation_05.png:system/semc/chargemon/data/charging_animation_05.png \
+     device/sony/fuji-common/animations/charging_animation_06.png:system/semc/chargemon/data/charging_animation_06.png \
+     device/sony/fuji-common/animations/charging_animation_07.png:system/semc/chargemon/data/charging_animation_07.png \
+     device/sony/fuji-common/animations/non-charging_animation_01.png:system/semc/chargemon/data/non-charging_animation_01.png \
+     device/sony/fuji-common/animations/non-charging_animation_02.png:system/semc/chargemon/data/non-charging_animation_02.png \
+     device/sony/fuji-common/animations/non-charging_animation_03.png:system/semc/chargemon/data/non-charging_animation_03.png \
+     device/sony/fuji-common/animations/non-charging_animation_04.png:system/semc/chargemon/data/non-charging_animation_04.png \
+     device/sony/fuji-common/animations/non-charging_animation_05.png:system/semc/chargemon/data/non-charging_animation_05.png \
+     device/sony/fuji-common/animations/non-charging_animation_06.png:system/semc/chargemon/data/non-charging_animation_06.png \
+     device/sony/fuji-common/animations/non-charging_animation_07.png:system/semc/chargemon/data/non-charging_animation_07.png
 
 # Boot Logo
 PRODUCT_COPY_FILES += \
@@ -245,11 +248,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp,adb
 
 #### Goo Manager support
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.goo.developerid=RaymanFX \
-    ro.goo.board=$(subst full_,,$(TARGET_PRODUCT)) \
-    ro.goo.rom=opensemc_cm \
-    ro.goo.version=$(shell date +%s)
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.goo.developerid=RaymanFX \
+#    ro.goo.board=$(subst full_,,$(TARGET_PRODUCT)) \
+#    ro.goo.rom=opensemc_cm \
+#    ro.goo.version=$(shell date +%s)
 
 # QCOM
 PRODUCT_PROPERTY_OVERRIDES += \

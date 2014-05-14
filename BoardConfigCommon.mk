@@ -127,8 +127,11 @@ TARGET_PROVIDES_LIBLIGHT := true
 # Legacy define
 TARGET_PROVIDES_LIBLIGHTS := true
 
-# CM Hardware Class
-BOARD_HARDWARE_CLASS := hardware/sony/cmhw
+# Power HAL
+#TARGET_USES_CM_POWERHAL := true
+
+# MK Hardware Class
+BOARD_HARDWARE_CLASS := device/sony/fuji-common/mkhw
 
 # Camera
 TARGET_PROVIDES_CAMERA_HAL := true
@@ -165,7 +168,10 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun%d/
 DEVICE_RESOLUTION := 720x1280
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 BOARD_HAS_NO_REAL_SDCARD := true
-TW_NO_USB_STORAGE := true
+#TW_NO_USB_STORAGE := true
+TW_FLASH_FROM_STORAGE := true
+TW_INTERNAL_STORAGE_PATH := "/sdcard"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
 
 # Health Daemon
 BOARD_BATTERY_DEVICE_NAME := "semc_battery_data"
