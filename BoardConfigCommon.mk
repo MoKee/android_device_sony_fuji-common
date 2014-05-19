@@ -21,7 +21,7 @@ TARGET_SPECIFIC_HEADER_PATH := device/sony/fuji-common/include
 -include device/sony/common/BoardConfigCommon.mk
 
 # Kernel properties
-TARGET_KERNEL_SOURCE := kernel/sony/msm8x60
+TARGET_KERNEL_SOURCE := kernel/sony/fuji-common
 
 # QCOM hardware
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
