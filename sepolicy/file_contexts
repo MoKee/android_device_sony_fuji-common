@@ -34,5 +34,10 @@
 /system/bin/bdAddrLoader           u:object_r:hci_exec:s0
 
 # Hardware tunables
-/sys/devices/platform/mdp.524288/kcal       u:object_r:sysfs_writable:s0
+/sys/devices/platform/mdp.524288/kcal                              u:object_r:sysfs_writable:s0
 /sys/devices/platform/msm_ssbi.0/pm8058-core/pm8xxx-vib/amp        u:object_r:sysfs_writable:s0
+
+# GPU Governor
+/sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/trustzone/governor                     u:object_r:untrusted_app:s0
+/sys/module/msm_kgsl_core/parameters/simple_laziness                                           u:object_r:untrusted_app:s0
+/sys/module/msm_kgsl_core/parameters/simple_ramp_threshold                                     u:object_r:untrusted_app:s0

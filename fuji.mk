@@ -137,7 +137,7 @@ PRODUCT_COPY_FILES += \
 
 # Power HAL
 PRODUCT_PACKAGES += \
-    power.fuji
+    power.msm8660
 
 # Misc
 PRODUCT_PACKAGES += \

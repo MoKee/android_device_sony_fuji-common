@@ -28,6 +28,8 @@ import android.text.TextUtils;
 import android.telephony.Rlog;
 import java.util.ArrayList;
 
+import com.android.internal.telephony.dataconnection.DataCallResponse;
+
 /*
  * Qualcomm RIL class for basebands that do not send the SIM status
  * piggybacked in RIL_UNSOL_RESPONSE_RADIO_STATE_CHANGED. Instead,
