@@ -473,6 +473,17 @@ on property:ro.use_data_netmgrd=false
     # netmgr not supported on specific target
     stop netmgrd
 
+service mpdecision /system/bin/mpdecision --no_sleep --avg_comp
+    class main
+    user root
+    disabled
+
+service thermald /system/bin/thermald -c /system/etc/thermald-semc.conf
+    class main
+    socket thermald stream 0666 root root
+    user root
+    disabled
+
 service qrngd /system/bin/qrngd -f
     class late_start
     user root
@@ -481,6 +492,10 @@ service qseecomd /system/bin/qseecomd
     class late_start
     user system
     group system
+
+on property:init.svc.bootanim=stopped
+    start mpdecision
+    start thermald
 
 service nvcustomizer /system/bin/nvcustomizer
     user root
@@ -516,23 +531,33 @@ on property:init.svc.p2p_supplicant=stopped
 
 # Powersave
 on property:sys.perf.profile=0
+    start mpdecision
+    start thermald
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1242000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1242000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor lionheart
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor lionheart
+    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk 160000000
 
 # Balanced
 on property:sys.perf.profile=1
+    start mpdecision
+    start thermald
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1512000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1512000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor lionheart
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor lionheart
+    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk 266667000
 
 # High performance
 on property:sys.perf.profile=2
+    stop mpdecision
+    stop thermald
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1512000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq 1512000
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor performance
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor performance
+    write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk 266667000
+
