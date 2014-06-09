@@ -40,9 +40,9 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(uncompressed_ramdisk) $(r
 	$(hide) cp $(PRODUCT_OUT)/utilities/extract_elf_ramdisk $(PRODUCT_OUT)/combinedroot/sbin/
 
 	$(hide) cp $(INITSH) $(PRODUCT_OUT)/combinedroot/sbin/init.sh
-	$(hide) #cp $(HWCLOCK) $(PRODUCT_OUT)/combinedroot/sbin/hwclock
+	$(hide) cp $(HWCLOCK) $(PRODUCT_OUT)/combinedroot/sbin/hwclock
 	$(hide) chmod 755 $(PRODUCT_OUT)/combinedroot/sbin/init.sh
-	$(hide) #chmod 755 $(PRODUCT_OUT)/combinedroot/sbin/hwclock
+	$(hide) chmod 755 $(PRODUCT_OUT)/combinedroot/sbin/hwclock
 	$(hide) ln -s sbin/init.sh $(PRODUCT_OUT)/combinedroot/init
 	$(hide) cp $(BOOTREC_DEVICE) $(PRODUCT_OUT)/combinedroot/sbin/
 
