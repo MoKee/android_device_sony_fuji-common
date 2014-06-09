@@ -165,10 +165,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_COPY_FILES += \
     device/sony/fuji-common/rootdir/init.semc.rc:root/init.semc.rc \
     device/sony/fuji-common/rootdir/system/etc/init.fixbt.sh:system/etc/init.fixbt.sh \
-    device/sony/fuji-common/rootdir/ueventd.semc.rc:root/ueventd.semc.rc \
-    device/sony/fuji-common/rootdir/sbin/fbmenu:root/sbin/fbmenu \
-    device/sony/fuji-common/rootdir/sbin/bootsel.sh:root/sbin/bootsel.sh \
-    device/sony/fuji-common/rootdir/usr/lib/consolefont.psf:root/usr/lib/consolefont.psf
+    device/sony/fuji-common/rootdir/ueventd.semc.rc:root/ueventd.semc.rc
 
 # Audio policy config
 PRODUCT_COPY_FILES += \

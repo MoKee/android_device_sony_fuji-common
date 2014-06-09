@@ -40,9 +40,9 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(uncompressed_ramdisk) $(r
 	$(hide) cp $(PRODUCT_OUT)/utilities/extract_elf_ramdisk $(PRODUCT_OUT)/combinedroot/sbin/
 
 	$(hide) cp $(INITSH) $(PRODUCT_OUT)/combinedroot/sbin/init.sh
-	$(hide) cp $(HWCLOCK) $(PRODUCT_OUT)/combinedroot/sbin/hwclock
+	$(hide) #cp $(HWCLOCK) $(PRODUCT_OUT)/combinedroot/sbin/hwclock
 	$(hide) chmod 755 $(PRODUCT_OUT)/combinedroot/sbin/init.sh
-	$(hide) chmod 755 $(PRODUCT_OUT)/combinedroot/sbin/hwclock
+	$(hide) #chmod 755 $(PRODUCT_OUT)/combinedroot/sbin/hwclock
 	$(hide) ln -s sbin/init.sh $(PRODUCT_OUT)/combinedroot/init
 	$(hide) cp $(BOOTREC_DEVICE) $(PRODUCT_OUT)/combinedroot/sbin/
 
@@ -50,7 +50,7 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(PRODUCT_OUT)/kernel $(uncompressed_ramdisk) $(r
 	$(hide) cat $(PRODUCT_OUT)/combinedroot.cpio | gzip > $(PRODUCT_OUT)/combinedroot.fs
 	$(hide) python $(MKELF) -o $@ $(PRODUCT_OUT)/kernel@0x40208000 $(PRODUCT_OUT)/combinedroot.fs@0x41500000,ramdisk vendor/sony/fuji-common/proprietary/boot/RPM.bin@0x20000,rpm
 
-#	$(hide) ln -f $(INSTALLED_BOOTIMAGE_TARGET) $(PRODUCT_OUT)/boot.elf
+	$(hide) #ln -f $(INSTALLED_BOOTIMAGE_TARGET) $(PRODUCT_OUT)/boot.elf
 
 INSTALLED_RECOVERYIMAGE_TARGET := $(PRODUCT_OUT)/recovery.img
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTIMG) \

@@ -78,8 +78,6 @@ on post-fs
     exec /system/bin/sh /system/etc/pre_hw_config.sh
 
 on early-boot
-    # Exec bootsel to select boot mode.
-    exec /sbin/bootsel.sh
 
     # Start the offline charging (This blocks booting further in some cases)
     exec /system/bin/chargemon

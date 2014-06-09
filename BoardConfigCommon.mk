@@ -39,7 +39,6 @@ BOARD_HAS_NO_MISC_PARTITION := true
 
 # Vendor
 BOARD_VENDOR := sony
-BOARD_RECOVERY_SWIPE := true
 
 # Architecture
 TARGET_ARCH := arm
@@ -158,9 +157,8 @@ TARGET_FORCE_CPU_UPLOAD := true
 
 # Custom boot
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TARGET_RECOVERY_PRE_COMMAND := "touch /cache/recovery/boot;sync;"
 BOARD_CUSTOM_BOOTIMG_MK := device/sony/fuji-common/custombootimg.mk
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
+TARGET_NO_SEPARATE_RECOVERY := true
 
 # AOSP releasetools extensions
 #TARGET_RELEASETOOLS_EXTENSIONS := device/sony/fuji-common
