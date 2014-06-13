@@ -32,6 +32,9 @@ on init
     export SECONDARY_STORAGE /storage/sdcard1
     export PATH /sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin:/data/bin
 
+    # Clear splash screen
+    write /sys/class/graphics/fb0/blank 1
+
 on fs
     mount_all /fstab.semc
 
