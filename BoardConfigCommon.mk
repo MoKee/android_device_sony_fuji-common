@@ -75,7 +75,7 @@ BOARD_KERNEL_PAGESIZE := 2048
 #BOARD_PROVIDES_LIBRIL := true
 #BOARD_RIL_NO_CELLINFOLIST := true
 #BOARD_USES_QCOM_RIL_RESPONSE_5_ELEMENTS := true
-BOARD_RIL_CLASS := ../../../device/sony/fuji-common/ril/telephony/java/com/android/internal/telephony/SonyQualcommRIL.java
+#BOARD_RIL_CLASS := ../../../device/sony/fuji-common/ril/telephony/java/com/android/internal/telephony/SonyQualcommRIL.java
 
 # Wifi related defines
 BOARD_WLAN_DEVICE                := bcmdhd
